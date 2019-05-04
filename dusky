@@ -1,0 +1,863 @@
+<!--
+Theme Name: Dusky
+Author: Joey J
+Author URI: http://lastlights.net/
+Description: Dusky is an elegantly handcrafted multi-columed grid theme designed for photographers and artists on Tumblr in mind. It’s responsive, hi-res and equipped with fancyBox3 (lightbox).
+Version: 1.0
+Credits: jQuery (MIT license), Masonry (MIT license), Infinite Scroll (commercial license purchased), fancyBox (GPLv3 license, open-sourced on GitHub @lastlightsnet), PXU Photoset Extended (MIT license), Style Hatch for Photoset Grid, Zack Sultan for media resizing scripts, Font Awesome (SIL open font license), Google Fonts (SIL open font license)
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="{block:IndexPage}{block:Description}{MetaDescription}{/block:Description}{/block:IndexPage}{block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}">
+<meta name="viewport" content="width=device-width">
+<title>{block:SearchPage} Search Results | {/block:SearchPage}{block:TagPage} Tag Results | {/block:TagPage}{block:PermalinkPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{/block:PermalinkPage}{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="applications/rss+xml" title="RSS" href="{RSS}">
+
+<!-- THEME OPTIONS -->
+{block:Hidden}
+<meta name="color:Body background" content="#ffffff">
+<meta name="color:Body text" content="#84848d">
+<meta name="color:Title" content="#eef5fe">
+<meta name="color:Links" content="#788eb5">
+<meta name="color:Links hover" content="#aab8d1">
+<meta name="color:Set header colour if not using a header image" content="#103359">
+<meta name="color:Description text" content="#ffffff">
+<meta name="color:Menu bar background" content="#144070">
+<meta name="color:Menu bar links" content="#dedeea">
+<meta name="color:Post background" content="#ffffff">
+<meta name="color:Post meta background" content="#f2f2f2">
+<meta name="color:Post meta and notes text" content="#b1b1b1">
+<meta name="color:Post meta links background" content="#e5e5e5">
+<meta name="color:Footer background" content="#353535">
+<meta name="color:Footer text" content="#777777">
+<meta name="color:Footer links" content="#788eb5">
+<meta name="color:Border" content="#dfdfdf">
+<meta name="color:Post navigation links background" content="#e5e5e5">
+<meta name="color:Menu bar icon" content="#353535">
+<meta name="font:Blog title font" content="Alternate Gothic">
+<meta name="font:Body font" content="Georgia">
+<meta name="font:Footer font" content="Georgia">
+<meta name="select:Body font size" content="14px" title="14px">
+<meta name="select:Body font size" content="11px" title="11px">
+<meta name="select:Body font size" content="12px" title="12px">
+<meta name="select:Body font size" content="13px" title="13px">
+<meta name="select:Body font size" content="15px" title="15px">
+<meta name="select:Body font size" content="16px" title="16px">
+<meta name="select:Title size" content="24px" title="24px">
+<meta name="select:Title size" content="14px" title="14px">
+<meta name="select:Title size" content="16px" title="16px">
+<meta name="select:Title size" content="18px" title="18px">
+<meta name="select:Title size" content="20px" title="20px">
+<meta name="select:Title size" content="22px" title="22px">
+<meta name="select:Title size" content="26px" title="26px">
+<meta name="select:Title size" content="28px" title="28px">
+<meta name="select:Title size" content="30px" title="30px">
+<meta name="select:Title size" content="32px" title="32px">
+<meta name="select:Title size" content="34px" title="34px">
+
+<meta name="select:Grid width" content="350px" title="350px">
+<meta name="select:Grid width" content="300px" title="300px">
+<meta name="select:Grid width" content="400px" title="400px">
+
+<meta name="select:Permalink page column width" content="800px" title="800px">
+<meta name="select:Permalink page column width" content="600px" title="600px">
+<meta name="select:Permalink page column width" content="700px" title="700px">
+<meta name="if:Use header image" content="1">
+<meta name="if:Show avatar" content="1">
+<meta name="if:Use circle avatar" content="1">
+<meta name="if:Show title" content="1">
+<meta name="if:Show description" content="1">
+<meta name="if:Show archive link" content="1">
+<meta name="if:Show tags" content="1">
+<meta name="if:Show share links" content="1">
+<meta name="if:Show like and reblog buttons" content="1">
+<meta name="if:Infinite scroll" content="1">
+<meta name="if:Hide reblogged posts on index page" content="0">
+<meta name="if:Show only photo and photoset posts on index page" content="0">
+<meta name="text:Instagram URL" content="">
+<meta name="text:YouTube URL" content="">
+<meta name="text:Facebook URL" content="">
+<meta name="text:Twitter URL" content="">
+<meta name="text:GooglePlus URL" content="">
+<meta name="text:Pinterest URL" content="">
+<meta name="text:Flickr URL" content="">
+<meta name="text:500px URL" content="">
+<meta name="text:LinkedIn URL" content="">
+<meta name="text:RSS URL" content="">
+<meta name="text:SoundCloud URL" content="">
+<meta name="text:Vimeo URL" content="">
+<meta name="text:Kofi URL" content="">
+<meta name="text:Google analytics ID" content="">
+{/block:Hidden}
+
+<!-- FONT AWESOME-->
+<link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet" type="text/css">
+
+<!-- JQUERY -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+{block:PermalinkPage}
+<!-- PXU PHOTOSET -->
+<link href="https://static.tumblr.com/whvbcp2/ih2pns3zl/style_latest.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.photo-slideshow').pxuPhotoset({
+lightbox: false,
+rounded: false,
+gutter: '3px',
+photoset: '.photo-slideshow',
+photoWrap: '.photo-data',
+photo: '.pxu-photo'
+}, function() {
+// callback
+});
+});
+</script>
+{/block:PermalinkPage}
+
+<!-- SEARCH DROPDOWN -->
+<script type="text/javascript" src="https://static.tumblr.com/jakaxnf/apCl1tme2/dropdown.js"></script>
+
+<!-- FANCYBOX -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" media="screen">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+<script type="text/javascript">
+$.fancybox.defaults.buttons = [
+'slideShow',
+'share',
+'zoom',
+'thumbs',
+'close'
+];
+</script>
+
+{block:IndexPage}
+<!-- PHOTOSET TO BE RESPONSIVE -->
+<script type="text/javascript">
+$('.photoset-grid').photosetGrid();
+</script>
+<script type="text/javascript" src="https://static.tumblr.com/wgijwsy/jgemkyt9x/jquery.photoset-grid.min.js"></script>
+{/block:IndexPage}
+
+<!-- MASONRY PLUS INFINITE SCROLL -->
+{block:IndexPage}
+<script type="text/javascript" src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script type="text/javascript" src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.js"></script>
+<script type="text/javascript">
+jQuery(function($){
+// with masonry & jQuery
+// init masonry
+var $grid = $('.grid').masonry({
+// masonry options
+itemSelector: '.grid-item',
+gutter: 20,
+fitWidth: true,
+});
+// get masonry instance
+var msnry = $grid.data('masonry');
+// layout masonry after each image loads
+$grid.imagesLoaded().progress( function() {
+$grid.masonry('layout');
+});
+{block:IfInfiniteScroll}
+// init infinite scroll
+$grid.infiniteScroll({
+// infinite scroll options
+path: '.pagination_next',
+append: '.for_infinite_scroll',
+outlayer: msnry,
+status: '.page-load-status',
+});
+// making like buttons work using infinite scroll
+$grid.on('append.infiniteScroll',function(e,r,p,items){
+var $newElems = $(items);
+var $newElemsIDs = $newElems.map(function(){
+return this.id;
+}).get();
+Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
+});
+{/block:IfInfiniteScroll}
+});
+</script>
+{/block:IndexPage}
+
+<!-- GOOGLE ANALYTICS -->
+{block:IfGoogleAnalyticsID}
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', '{text:Google Analytics ID}', 'auto');
+ga('send', 'pageview');
+</script>
+{/block:IfGoogleAnalyticsID}
+
+<!-- BACK TO TOP -->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+var offset = 250;
+var duration = 300;
+jQuery(window).scroll(function() {
+if (jQuery(this).scrollTop() > offset) {
+jQuery('.back_to_top').fadeIn(duration);
+} else {
+jQuery('.back_to_top').fadeOut(duration);
+}
+});
+jQuery('.back_to_top').click(function(event) {
+event.preventDefault();
+jQuery('html, body').animate({scrollTop: 0}, duration);
+return false;
+})
+});
+</script>
+
+<!-- MEDIA RESIZING -->
+<script type="text/javascript" src="https://static.tumblr.com/whvbcp2/34Kpm8qak/resize.js"></script>
+
+<!-- CSS -->
+<style type="text/css">
+
+/* BASIC */
+html {-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
+
+html, body {border: 0; margin: 0; padding: 0;}
+
+ul, li {list-style: none; margin: 0; padding: 0;}
+
+img {border: none; height: auto; max-width: 100%;}
+
+body {background-color:{color:Body background}; color: {color:Body text}; margin: 0 auto;}
+
+a, a:link, a:visited {color: {color:Links}; text-decoration: none;}
+
+a:hover {color: {color:Links hover}; text-decoration: none;}
+
+#container {margin: 0 auto;}
+
+#content {{block:PermalinkPage}margin: 0 auto; max-width: {select:Permalink page column width};{/block:PermalinkPage} padding: 30px 0 180px 0;}
+
+/* HEADER */
+.header {background: {color:Set header colour if not using a header image}; {block:ShowHeaderImage}{block:IfUseHeaderImage}background: url({HeaderImage}); background-position: center; background-repeat: no-repeat; background-size: cover;{/block:IfUseHeaderImage}{/block:ShowHeaderImage}; font-family: {font:Body font}; line-height: 150%; padding: 20px 0 0 0; text-align: center;}
+
+.logo {margin-bottom: 7px;}
+
+.blog_title {font-family: {font:Blog title font}; font-size: {select:Title size}; letter-spacing: 0.2em; margin-bottom: 5px; padding-left: 5px; padding-right: 5px;}
+
+.blog_title a {color: {color:Title};}
+
+.tag_line {color: {color:Description text}; font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 13px; letter-spacing: 0.03em; line-height: 130%; padding-bottom: 5px; text-shadow: 2px 2px 2px #666;}
+
+.menu {background-color:{color:Menu bar background}; font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 0.05em; line-height: 140%; margin-top: 15px; overflow: hidden; padding: 5px 20px; text-align: left; text-transform: uppercase;}
+
+.menu a {color: {color:Menu bar links}; margin-right: 14px;}
+
+.menu a:hover {filter: alpha(opacity=50); opacity: 0.5;}
+
+#slickbox {background: {color:Body background}; padding-left: 20px; padding-top: 5px; text-align: left;}
+
+.social_links {height: 20px; vertical-align: text-top; width: 20px;}
+
+/* SEARCH FORM */
+input[type="submit"] {background-color: #4971af; border: none; border-radius: 2px; color: #fff; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 13px; letter-spacing: 0.075em; padding: 5px 10px; text-transform: uppercase;}
+
+.searchform {border: 1px solid #bbb; margin-bottom: 10px;}
+
+input.searchform_mobile {background: rgba(246,246,246,0.15); border: 0; border-radius: 2px; color: #f6f6f6; height: 23px; margin-bottom: 5px; margin-right: 5px; margin-top: 10px; padding: 5px; width: 150px;}
+
+input.searchform_mobile:focus {background: rgba(246,246,246,0.1);}
+
+input[type="search"] {/* fixing input type="search" behaviour in safari */ -webkit-appearance: textfield; /* fixing rounded corner in search field in safari iOS */ -webkit-appearance: none;}
+
+input[type="submit"] {/* fixing rounded corner in search field in safari iOS */ -webkit-appearance: none; -webkit-border-radius: 2px;}
+
+input[type="text"] {/* fixing rounded corner in search field in safari iOS */ -webkit-appearance: none; -webkit-border-radius: 0;}
+
+::-webkit-input-placeholder {font-family: Arial, Helvetica, sans-serif;}
+
+::-moz-placeholder {/* firefox 19+ */ font-family: Arial, Helvetica, sans-serif;}
+
+:-ms-input-placeholder {/* ie */ font-family: Arial, Helvetica, sans-serif;}
+
+input:-moz-placeholder {font-family: Arial, Helvetica, sans-serif;}
+
+input {font-family: Arial, Helvetica, sans-serif;}
+
+/* POSTS */
+h1 {font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 400; letter-spacing: 0.05em;}
+
+.post {background-color: {color:Post background}; border: 1px solid {color:Border}; box-shadow: 0 4px 3px -2px #aaa; font-family: {font:Body font}; font-size: {select:Body font size}; letter-spacing: 0.01em; line-height: 170%; word-wrap: break-word;}
+
+a:hover .photo_hover {filter: brightness(75%); -webkit-filter: brightness(75%); -moz-filter: brightness(75%);}
+
+.caption_padding {padding-left: 10px; padding-right: 10px;}
+
+.title_indent {margin-left: 10px; margin-right: 10px;}
+
+.caption_padding a, .caption_padding a:hover {font-weight: bold;}
+
+.post_meta .caption_padding a, .post_meta .caption_padding a:hover {font-weight: normal;}
+
+.videoWrapper, .tmblr-embed {height: 0; margin-bottom: 10px; padding-bottom: 56.25%; position: relative;}
+
+.videoWrapper iframe, .videoWrapper object, .tmblr-embed iframe {height: 100%; left: 0; position: absolute; top: 0; width: 100%;}
+
+.videoWrapper iframe.flickr-embed-frame, .videoWrapper img {height: auto; max-width: 100%; position: relative; width: 100%;}
+
+.tumblr_audio_player {max-width: 100%;}
+
+.soundcloud_audio_player {height: 100%; width: 100%;}
+
+.spotify_audio_player {height: 80px; width: 100%;}
+
+blockquote {border-left: 3px solid #bbb; margin-left: 10px; padding-left: 15px; word-wrap: break-word;}
+
+.quotation_mark {font-size: 60px; vertical-align: -20px;}
+
+/* POST META */
+.post_meta {background-color: {color:Post meta background}; color: {color:Post meta and notes text}; font-family: Arial, Helvetica, sans-serif; font-size: 11px; letter-spacing: 0.085em; margin-top: 5px; padding-bottom: 7px; padding-top: 7px;}
+
+.tag_block a {background-color: {color:Post meta links background}; border-radius: 3px; display: inline-block; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.15em; line-height: 100%; margin: 3px 0; padding: 5px; -khtml-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+
+/* BACK TO TOP BUTTON */
+.back_to_top {background: none; background-color: #111; border-radius: 3px; display: inline; display: none; height: 45px; margin: 0; position: fixed; bottom: 70px; right: 12px; text-align: center; width: 35px; z-index: 100;}
+
+.back_to_top i {font-size: 30px; padding-top: 5px;}
+
+/* POST AND PAGE NAV */
+.nav_posts {font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.1em; padding: 30px 0 40px 0; text-transform: uppercase;}
+
+.nav_pages {bottom: 50px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 0.1em; padding: 20px 0 5px 0; position: absolute; text-transform: uppercase; width: 100%;}
+
+.nav_posts .old, .nav_pages .pagination_previous {background-color: {color:Post navigation links background}; border-radius: 3px; float: left; padding: 5px 8px; -khtml-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+
+.nav_posts .new, .nav_pages .pagination_next {background-color: {color:Post navigation links background}; border-radius: 3px; float: right; padding: 5px 8px; -khtml-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;}
+
+{block:IfInfiniteScroll}
+.nav_pages {display: none;}
+{/block:IfInfiniteScroll}
+
+/* POST NOTES */
+.notes {color: {color:Post meta and notes text}; font-family: {font:Body font}; font-size: 12px; margin: 50px 0 0 0; padding: 0;}
+
+.notes img.avatar {border-radius: 50%; height: 20px; margin-right: 10px; vertical-align: -5px; width: 20px;}
+
+.notes li {line-height: 200%;}
+
+/* FOOTER */
+.footer {background: {color:Footer background}; bottom: 0; color: {color:Footer text}; font-family: {font:Footer font}; font-size: 11px; left: 0; letter-spacing: 0.1em; line-height: 150%; position: fixed; right: 0; width: 100%; z-index: 1000;}
+
+.footer_inside {margin: 0 auto; padding: 7px 10px; text-align: center;}
+
+.footer_inside a {color: {color:Footer links};}
+
+.footer_inside a:hover {filter: alpha(opacity=50); opacity: 0.5;}
+
+/* OTHERS */
+#ask_form, #submit_form {padding-top: 5px;}
+
+.mobile_only {display: none;}
+
+{block:IfShowOnlyPhotoAndPhotosetPostsOnIndexPage}
+{block:IndexPage} /* to cancel out margin-bottom added to .grid-item */
+.reblog .grid-item, .text .grid-item, .link .grid-item, .quote .grid-item, .chat .grid-item, .audio .grid-item, .video .grid-item, .answer .grid-item {margin-bottom: 0;}
+
+.reblog, .text, .link, .quote, .chat, .audio, .video, .answer {display: none;}
+
+.notes .reblog {display: inline;}
+{/block:IndexPage}
+{/block:IfShowOnlyPhotoAndPhotosetPostsOnIndexPage}
+
+{block:IfHideRebloggedPostsOnIndexPage}
+{block:IndexPage} /* to cancel out margin-bottom added to .grid-item */
+.reblog .grid-item {margin-bottom: 0;}
+
+.reblog {display: none;}
+
+.notes .reblog {display: inline;}
+{/block:IndexPage}
+{/block:IfHideRebloggedPostsOnIndexPage}
+
+/* FANCYBOX TWEAKS */
+.fancybox-share h1 {color: #555; font-size: 28px;}
+
+.fancybox-share, .fancybox-infobar {font-family: 'Oswald', sans-serif; font-weight: 400;}
+
+.fancybox-caption {color: #888; font-family: Georgia, "Times New Roman", Times, serif;}
+
+.fancybox-caption a {font-weight: bold; text-decoration: none;}
+
+.fancybox-caption a:hover {color: #eee; text-decoration: none;}
+
+/* SLIDING MENU */
+.side-menu-wrapper {background: rgba(0,0,0,.90); box-sizing: border-box; font: 16px 'Oswald', sans-serif; height: 100%; letter-spacing: 0.1em; padding: 20px 10px 0 40px; position: fixed; right: 0; /* sidebar initial position, "right" for right positioned menu */ text-align: right; text-transform: uppercase; top: 0; transition: 0.5s; width: 250px; z-index: 3;}
+
+.side-menu-wrapper > ul {height: 95%; list-style: none; margin: 0; overflow-y: auto; /* enable scroll for menu items */ padding: 0;}
+
+.side-menu-wrapper > ul > li > a {border-bottom: 1px solid #131313; color: #989898; display: block; padding: 6px 4px 6px 4px; text-decoration: none; transition: 0.3s;}
+
+.side-menu-wrapper > ul > li > a:hover {color: #c1c1c1;}
+
+.side-menu-wrapper > a.menu-close {color: #6b6b6b; display: block; font-size: 60px; margin: -40px 0 -15px -20px; padding: 8px 0 4px 23px; text-decoration: none;}
+
+.side-menu-wrapper > a:hover.menu-close {color: #a6a6a6;}
+
+.menu-overlay {background-color: rgba(0,0,0,.7); height: 100%; left: 0; opacity: 0; overflow-x: hidden; overflow-y: auto; position: fixed; text-align: center; top: 0; transition: opacity 1s; width: 0; z-index: 2;}
+
+/* MASONRY */
+{block:IndexPage}
+.grid {margin: 0 auto; width: 100%;}
+
+.grid:after {clear: both; content: ''; display: block;}
+
+.grid-item {float: left; height: auto; margin-bottom: 20px; width: {select:Grid width};}
+
+/* LOADING ANIMATION FOR INFINITE SCROLL */
+.page-load-status {display: none; /* hidden by default */ font-family: {font:Body font}; font-size: 13px; margin: 0; padding: 0 0 50px 0; text-align: center;}
+
+.loader-ellips {font-size: 20px; /* change size here */ height: 1em; margin: 10px auto; position: relative; width: 4em;}
+
+.loader-ellips__dot {animation-duration: 0.5s; animation-iteration-count: infinite; animation-timing-function: ease; background: #555; /* change colour here */ border-radius: 0.5em; display: block; height: 1em; position: absolute; width: 1em;}
+
+.loader-ellips__dot:nth-child(1), .loader-ellips__dot:nth-child(2) {left: 0;}
+
+.loader-ellips__dot:nth-child(3) {left: 1.5em;}
+
+.loader-ellips__dot:nth-child(4) {left: 3em;}
+
+@keyframes reveal {
+from {transform: scale(0.001);}
+to {transform: scale(1);}
+}
+
+@keyframes slide {
+to {transform: translateX(1.5em)}
+}
+
+.loader-ellips__dot:nth-child(1) {animation-name: reveal;}
+
+.loader-ellips__dot:nth-child(2), .loader-ellips__dot:nth-child(3) {animation-name: slide;}
+
+.loader-ellips__dot:nth-child(4) {animation-direction: reverse; animation-name: reveal;}
+{/block:IndexPage}
+
+/* NPF TWEAKS */
+div.npf_row {margin-left: -10px !important; margin-right: -10px !important; max-height: inherit !important;}
+
+.tmblr-full {margin-left: -10px; margin-right: -10px;}
+
+{block:PermalinkPage}
+/* PXU TWEAKS */
+.photo-slideshow .pxu-photo {line-height: 0;}
+
+.photo-slideshow .pxu-photo img {display: inline-block;}
+{/block:PermalinkPage}
+
+/* IE10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+input.searchform_mobile {height: 15px;}
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width:700px) {
+/* BASIC */
+html, body {overflow-x: hidden !important; width: auto !important;}
+
+.header {padding: 20px 0;}
+
+#content {{block:PermalinkPage}max-width: 100%;{/block:PermalinkPage}}
+
+/* POSTS */
+.post {border: none; box-shadow: none;}
+
+.videoWrapper img {min-width: 100%;}
+
+/* PAGE NAV */
+.nav_pages {bottom: 125px;}
+
+/* FOOTER */
+.footer_inside {text-align: left;}
+
+/* OTHERS */
+.desktop_only {display: none;}
+
+.mobile_only {display: block;}
+
+/* SLIDING MENU */
+#toggle {display: block; float: right; height: 30px; padding-right: 20px; padding-top: 10px; width: 28px;}
+
+#toggle span:after, #toggle span:before {content: ""; left: 0; position: absolute; top: -10px;}
+
+#toggle span:after {top: 10px;}
+
+#toggle span {display: block; position: relative;}
+
+#toggle span, #toggle span:after, #toggle span:before {backface-visibility: hidden; background-color: {color:Menu bar icon}; height: 5px; transition: all 0.3s; width: 100%;}
+
+.social_links {height: 35px; margin-left: 10px; margin-top: 15px; width: 35px;}
+
+/* MASONRY */
+{block:IndexPage}
+.grid {width: inherit !important;}
+
+.grid-item {float: none; width: 100%;}
+
+.page-load-status {width: 100%;}
+{/block:IndexPage}
+}
+{CustomCSS}
+</style>
+</head>
+
+<body>
+<div id="container">
+<a href="#" class="back_to_top"><i class="fa fa-2x fa-angle-up"></i><!-- .fa fa-2x fa-angle-up --></a><!-- .back_to_top -->
+<div class="header">
+<div class="menu-overlay"></div><!-- .menu-overlay --><a href="#" id="toggle" class="menu-open mobile_only"><span></span></a><!-- #toggle .menu-open mobile_only --><div style="clear: both;"></div>
+
+<!-- MOBILE NAV -->
+<div class="side-menu-wrapper"><a href="#" class="menu-close">×</a><!-- .menu-close --><ul><li><a href="/">Home</a></li>{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}{block:IfShowArchiveLink}<li><a href="/archive">Archive</a></li>{/block:IfShowArchiveLink}{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}<form action="/search" method="get"><input type="search" name="q" value="{SearchQuery}" class="searchform_mobile" placeholder="Search + press enter"></form><div style="padding-right: 4px;">{block:ifInstagramURL}<a href="{text:Instagram URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/I8apczbkm/instagram.svg" alt="Find me on Instagram" title="Find me on Instagram" class="social_links"></a>{/block:ifInstagramURL}{block:ifYouTubeURL}<a href="{text:YouTube URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/xkEpcz5cy/youtube.svg" alt="Find me on YouTube" title="Find me on YouTube" class="social_links"></a>{/block:ifYouTubeURL}{block:ifFacebookURL}<a href="{text:Facebook URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/183pcz2er/facebook.svg" alt="Find me on Facebook" title="Find me on Facebook" class="social_links"></a>{/block:ifFacebookURL}{block:ifTwitterURL}<a href="{text:Twitter URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/Tc3pcz2f0/twitter.svg" alt="Find me on Twitter" title="Find me on Twitter" class="social_links"></a>{/block:ifTwitterURL}{block:ifGooglePlusURL}<a href="{text:GooglePlus URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/288pcz2fb/googleplus.svg" alt="Find me on Google Plus" title="Find me on Google Plus" class="social_links"></a>{/block:ifGooglePlusURL}{block:ifPinterestURL}<a href="{text:Pinterest URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/DFfpcz2hj/pinterest.svg" alt="Find me on Pinterest" title="Find me on Pinterest" class="social_links"></a>{/block:ifPinterestURL}{block:ifFlickrURL}<a href="{text:Flickr URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/A7Opcz2e6/flickr.svg" alt="Find me on Flickr" title="Find me on Flickr" class="social_links"></a>{/block:ifFlickrURL}{block:if500pxURL}<a href="{text:500px URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/doNpcz2ck/500px.svg" alt="Find me on 500px" title="Find me on 500px" class="social_links"></a>{/block:if500pxURL}{block:ifLinkedInURL}<a href="{text:LinkedIn URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/gsXpnmbeb/linkedin.svg" alt="Find me on LinkedIn" title="Find me on LinkedIn" class="social_links"></a>{/block:ifLinkedInURL}{block:ifRSSURL}<a href="{text:RSS URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/VHUpnmbfl/rss.svg" alt="Subscribe to RSS" title="Subscribe to RSS" class="social_links"></a>{/block:ifRSSURL}{block:ifSoundCloudURL}<a href="{text:SoundCloud URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/BbKpnmbgb/soundcloud.svg" alt="Find me on SoundCloud" title="Find me on SoundCloud" class="social_links"></a>{/block:ifSoundCloudURL}{block:ifVimeoURL}<a href="{text:Vimeo URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/680pnmbgv/vimeo.svg" alt="Find me on Vimeo" title="Find me on Vimeo" class="social_links"></a>{/block:ifVimeoURL}{block:ifKofiURL}<a href="{text:Kofi URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/JaYpgmsof/ko-fi.svg" alt="Find me on Ko-fi" title="Find me on Ko-fi" class="social_links"></a>{/block:ifKofiURL}</div></ul></div><!-- .side-menu-wrapper -->
+
+<!-- LOGO -->
+{block:IfShowAvatar}
+<div class="logo"><a href="/"><img src="{PortraitURL-128}" alt="{Title}" title="{Title}" {block:IfUseCircleAvatar}style="border-radius: 50%;"{/block:IfUseCircleAvatar} width="64" height="64"></a></div><!-- .logo -->
+{/block:IfShowAvatar}
+
+<!-- TITLE -->
+{block:IfShowTitle}
+<div class="blog_title"><a href="/">{Title}</a></div><!-- .blog_title -->
+{/block:IfShowTitle}
+
+<!-- TAGLINE -->
+{block:IfShowDescription}
+<div class="tag_line">{Description}</div><!-- .tag_line -->
+{/block:IfShowDescription}
+
+<!-- DESKTOP NAV -->
+<div class="menu desktop_only"><span style="float: left; max-width: 90%;"><a href="/">HOME</a>{block:HasPages}{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}{/block:HasPages}{block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}{block:IfShowArchiveLink}<a href="/archive">Archive</a>{/block:IfShowArchiveLink}<a href="#" id="slick-toggle">Search</a><!-- #slick-toggle --></span><span style="float: right;">{block:ifInstagramURL}<a href="{text:Instagram URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/I8apczbkm/instagram.svg" alt="Find me on Instagram" title="Find me on Instagram" class="social_links"></a>{/block:ifInstagramURL}{block:ifYouTubeURL}<a href="{text:YouTube URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/xkEpcz5cy/youtube.svg" alt="Find me on YouTube" title="Find me on YouTube" class="social_links"></a>{/block:ifYouTubeURL}{block:ifFacebookURL}<a href="{text:Facebook URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/183pcz2er/facebook.svg" alt="Find me on Facebook" title="Find me on Facebook" class="social_links"></a>{/block:ifFacebookURL}{block:ifTwitterURL}<a href="{text:Twitter URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/Tc3pcz2f0/twitter.svg" alt="Find me on Twitter" title="Find me on Twitter" class="social_links"></a>{/block:ifTwitterURL}{block:ifGooglePlusURL}<a href="{text:GooglePlus URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/288pcz2fb/googleplus.svg" alt="Find me on Google Plus" title="Find me on Google Plus" class="social_links"></a>{/block:ifGooglePlusURL}{block:ifPinterestURL}<a href="{text:Pinterest URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/DFfpcz2hj/pinterest.svg" alt="Find me on Pinterest" title="Find me on Pinterest" class="social_links"></a>{/block:ifPinterestURL}{block:ifFlickrURL}<a href="{text:Flickr URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/A7Opcz2e6/flickr.svg" alt="Find me on Flickr" title="Find me on Flickr" class="social_links"></a>{/block:ifFlickrURL}{block:if500pxURL}<a href="{text:500px URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/doNpcz2ck/500px.svg" alt="Find me on 500px" title="Find me on 500px" class="social_links"></a>{/block:if500pxURL}{block:ifLinkedInURL}<a href="{text:LinkedIn URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/mS2pl0gd1/webicon-linkedin.svg" alt="Find me on LinkedIn" title="Find me on LinkedIn" class="social_links"></a>{/block:ifLinkedInURL}{block:ifRSSURL}<a href="{text:RSS URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/ymypl0gdj/webicon-rss.svg" alt="Subscribe to RSS" title="Subscribe to RSS" class="social_links"></a>{/block:ifRSSURL}{block:ifSoundCloudURL}<a href="{text:SoundCloud URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/6R9pl0gdu/webicon-soundcloud.svg" alt="Find me on SoundCloud" title="Find me on SoundCloud" class="social_links"></a>{/block:ifSoundCloudURL}{block:ifVimeoURL}<a href="{text:Vimeo URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/eUWpl0ge5/webicon-vimeo.svg" alt="Find me on Vimeo" title="Find me on Vimeo" class="social_links"></a>{/block:ifVimeoURL}{block:ifKofiURL}<a href="{text:Kofi URL}" target="_blank"><img src="https://static.tumblr.com/whvbcp2/JaYpgmsof/ko-fi.svg" alt="Find me on Ko-fi" title="Find me on Ko-fi" class="social_links"></a>{/block:ifKofiURL}</span></div><!-- .menu desktop_only --><div id="slickbox"><form action="/search" method="get"><input type="text" name="q" value="{SearchQuery}" class="searchform"><input type="submit" value="GO" style="margin-left: 5px;"></form></div><!-- #slickbox -->
+</div><!-- .header -->
+
+<div id="content" class="grid">
+<!-- SEARCH PAGE -->
+{block:SearchPage}
+{block:NoSearchResults}
+<div class="post caption_padding"><p>No search results found for &ldquo;{SearchQuery}&rdquo;. Try searching again using the form below.</p><form action="/search" method="get"><input type="text" name="q" value="{SearchQuery}" class="searchform"><input type="submit" value="Search" style="margin-left: 5px;"></form></div><!-- .post caption_padding -->
+{/block:NoSearchResults}
+{/block:SearchPage}
+
+<!-- POSTS -->
+{block:Posts inlineMediaWidth="1280"}
+<article class="{PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage} {TagsAsClasses} for_infinite_scroll" id="{PostID}">
+
+<!-- TEXT -->
+{block:Text}
+<div class="post grid-item">
+{block:Title}
+<h1 class="title_indent"><a href="{Permalink}">{Title}</a></h1><!-- .title_indent -->
+{/block:Title}
+
+<!-- BODY -->
+<div class="caption_padding">{Body}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div><!-- .caption_padding -->
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Text}
+
+<!-- PHOTO -->
+{block:Photo}
+<div class="post grid-item">
+<a data-fancybox="{PostID}" href="{PhotoURL-HighRes}" {block:IndexPage}data-caption="&lt;a href=&quot;{Permalink}&quot;&gt;Go to the Post&lt;/a&gt;{block:NoteCount}&amp;ensp;&amp;bull;&amp;ensp;&lt;a href=&quot;{Permalink}#notes&quot;&gt;{NoteCount} Notes&lt;/a&gt;{/block:NoteCount}&amp;ensp;&amp;bull;&amp;ensp;&lt;a href=&quot;{ReblogURL}&quot;&gt;Reblog&lt;/a&gt;"{/block:IndexPage}><img src="{PhotoURL-HighRes}" {block:IndexPage}class="photo_hover"{/block:IndexPage} alt="{PhotoAlt}"></a>
+{block:LinkURL}
+{block:PermalinkPage}
+<p class="caption_padding"><a href="{LinkURL}" target="_blank">Find out more here &rarr;</a></p><!-- .caption_padding -->
+{/block:PermalinkPage}
+{/block:LinkURL}
+
+<!-- CAPTION -->
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div><!-- .caption_padding -->
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Photo}
+
+<!-- PHOTOSET -->
+{block:Photoset}
+<div class="post grid-item">
+{block:IndexPage}
+<div class="photoset-grid" data-layout="{PhotosetLayout}">{block:Photos}<a data-fancybox="{PostID}" href="{PhotoURL-HighRes}" data-caption="&lt;a href=&quot;{Permalink}&quot;&gt;Go to the Post&lt;/a&gt;{block:NoteCount}&amp;ensp;&amp;bull;&amp;ensp;&lt;a href=&quot;{Permalink}#notes&quot;&gt;{NoteCount} Notes&lt;/a&gt;{/block:NoteCount}&amp;ensp;&amp;bull;&amp;ensp;&lt;a href=&quot;{ReblogURL}&quot;&gt;Reblog&lt;/a&gt;"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="photo_hover"></a>{/block:Photos}</div><!-- .photoset-grid -->
+{/block:IndexPage}
+
+{block:PermalinkPage}
+<div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}" style="display: inline-block;">
+{block:Photos}
+<div class="photo-data"><div class="pxu-photo"><a data-fancybox="{PostID}" href="{PhotoURL-HighRes}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" width="{PhotoWidth-500}" height="{PhotoHeight-500}" data-highres="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"></a></div><!-- .pxu-photo --></div><!-- .photo-data -->
+{/block:Photos}
+</div><!-- .photo-slideshow -->
+{/block:PermalinkPage}
+
+<!-- CAPTION -->
+<div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div><!-- .caption_padding -->
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Photoset}
+
+<!-- QUOTE -->
+{block:Quote}
+<div class="post grid-item">
+
+<!-- BODY -->
+<div class="caption_padding"><p><span class="quotation_mark">&ldquo;</span><!-- .quotation_mark -->{Quote}</p>{block:Source}&mdash;{Source}{/block:Source}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Quote}
+
+<!-- LINK -->
+{block:Link}
+<div class="post grid-item">
+<h1 class="title_indent"><a href="{URL}" {Target}>{Name} &#9658;</a></h1><!-- .title_indent -->
+
+<!-- BODY -->
+<div class="caption_padding">{block:Description}{Description}{/block:Description}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Link}
+
+<!-- AUDIO -->
+{block:Audio}
+<div class="post grid-item">
+
+<!-- BODY -->
+<div>{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}</div><div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Audio}
+
+<!-- CHAT -->
+{block:Chat}
+<div class="post grid-item">
+
+<!-- BODY -->
+{block:Title}
+<h1 class="title_indent"><a href="{Permalink}">{Title}</a></h1><!-- .title_indent -->
+{/block:Title}
+<div class="caption_padding"><ul>{block:Lines}<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>{/block:Lines}</ul></div><!-- .caption_padding -->
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Chat}
+
+<!-- VIDEO -->
+{block:Video}
+<div class="post grid-item">
+
+<!-- BODY -->
+<div class="videoWrapper">{Video-500}</div><!-- .videoWrapper --><div class="caption_padding">{block:Caption}{Caption}{/block:Caption}</div><!-- .caption_padding -->
+
+<!-- SUBMISSION -->
+{block:Submission}
+<div class="caption_padding"><p>Submitted by <a href="{SubmitterURL}">{Submitter}</a></p></div><!-- .caption_padding -->
+{/block:Submission}
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Video}
+
+<!-- ANSWER -->
+{block:Answer}
+<div class="post grid-item">
+
+<!-- BODY -->
+<div class="caption_padding"><p><strong>{Asker} Asked: </strong>{Question}</p><p>{Answer}</p></div><!-- .caption_padding -->
+
+<!-- LIKE AND REBLOG BUTTONS -->
+{block:IfShowLikeAndReblogButtons}
+<ul class="caption_padding"><li style="margin-left: 10px; float: right;">{ReblogButton size="20" color="grey"}</li><li style="text-align: right;">{LikeButton size="20" color="grey"}</li></ul><!-- .caption_padding --><div style="clear: both;"></div>
+{/block:IfShowLikeAndReblogButtons}
+
+<!-- POST META -->
+<div class="post_meta tag_block">
+{block:Date}
+<div class="caption_padding">Posted: <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>{block:NoteCount} Notes: <a href="{Permalink}#notes">{NoteCount}</a>{/block:NoteCount}{block:RebloggedFrom}  Reblogged from: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom} {block:IfShowShareLinks}Share on: <a href="http://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" target="_blank">Facebook</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" target="_blank">Twitter</a> <a href="//www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" target="_blank">Pinterest</a> <a href="mailto:?subject={URLEncodedShareString}&amp;body={URLEncodedMailSummary}">Email</a>{/block:IfShowShareLinks} {block:IfShowTags}{block:HasTags}Tags: {block:Tags}<a href="{TagURL}">{Tag}</a> {/block:Tags}{/block:HasTags}{/block:IfShowTags}</div><!-- .caption_padding -->
+{/block:Date}
+</div><!-- .post_meta tag_block -->
+</div><!-- .post grid-item -->
+{/block:Answer}
+
+<!-- POST PAGINATION -->
+{block:PermalinkPagination}
+<div class="nav_posts">{block:NextPost}<a href="{NextPost}" class="new">Next Post</a><!-- .new -->{/block:NextPost}{block:PreviousPost}<a href="{PreviousPost}" class="old">Previous Post</a><!-- .old -->{/block:PreviousPost}</div><!-- .nav_posts -->
+{/block:PermalinkPagination}
+
+<!-- NOTES -->
+{block:PermalinkPage}
+{block:NoteCount}
+<div class="caption_padding"><a name="notes"></a>{PostNotes-64}</div><!-- .caption_padding -->
+{/block:NoteCount}
+{/block:PermalinkPage}
+
+</article>
+{/block:Posts}
+
+<!-- PAGE PAGINATION -->
+{block:Pagination}
+<div class="nav_pages">{block:PreviousPage}<a href="{PreviousPage}" class="pagination_previous">Previous Page</a><!-- .pagination_previous -->{/block:PreviousPage}{block:NextPage}<a href="{NextPage}" class="pagination_next">Next Page</a><!-- .pagination_next -->{/block:NextPage}</div><!-- .nav_pages -->
+{/block:Pagination}
+</div><!-- #content .grid -->
+
+<!-- LOADING -->
+{block:IndexPage}
+<div class="page-load-status"><div class="loader-ellips infinite-scroll-request"><span class="loader-ellips__dot"></span><!-- .loader-ellips__dot --><span class="loader-ellips__dot"></span><!-- .loader-ellips__dot --><span class="loader-ellips__dot"></span><!-- .loader-ellips__dot --><span class="loader-ellips__dot"></span><!-- .loader-ellips__dot --></div><!-- .loader-ellips infinite-scroll-request --><p class="infinite-scroll-last">End of Content</p><!-- .infinite-scroll-last --><p class="infinite-scroll-error">No More Pages to Load</p><!-- .infinite-scroll-error --></div><!-- .page-load-status -->
+{/block:IndexPage}
+
+<!-- FOOTER -->
+<div class="footer"><div class="footer_inside"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="https://www.tumblr.com/theme/41035/">Dusky theme (1.0)</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; Powered by <a href="https://www.tumblr.com">Tumblr</a></span></div><!-- .footer_inside --></div><!-- .footer -->
+</div><!-- #container -->
+
+<!-- SLIDING MENU -->
+<script type="text/javascript">
+var slide_wrp 		= ".side-menu-wrapper"; //menu wrapper
+var open_button 	= ".menu-open"; //menu open button
+var close_button 	= ".menu-close"; //menu close button
+var overlay 		= ".menu-overlay"; //overlay
+$(slide_wrp).hide().css( {"right": -$(slide_wrp).outerWidth()+'px'}).delay(50).queue(function(){$(slide_wrp).show()});
+$(open_button).click(function(e){
+e.preventDefault();
+$(slide_wrp).css( {"right": "0px"});
+setTimeout(function(){
+$(slide_wrp).addClass('active');
+},50);
+$(overlay).css({"opacity":"1", "width":"100%"});
+});
+$(close_button).click(function(e){
+e.preventDefault();
+$(slide_wrp).css( {"right": -$(slide_wrp).outerWidth()+'px'});
+setTimeout(function(){
+$(slide_wrp).removeClass('active');
+},50);
+$(overlay).css({"opacity":"0", "width":"0"});
+});
+$(document).on('click', function(e) {
+if (!e.target.closest(slide_wrp) && $(slide_wrp).hasClass("active")){
+$(slide_wrp).css( {"right": -$(slide_wrp).outerWidth()+'px'}).removeClass('active');
+$(overlay).css({"opacity":"0", "width":"0"});
+}
+});
+</script>
+</body>
+</html>
