@@ -3,7 +3,7 @@ Theme Name: Dusky
 Author: Joey J
 Author URI: http://lastlights.net/
 Description: Dusky is an elegantly handcrafted multi-columed grid theme designed for photographers and artists on Tumblr in mind. It’s responsive, hi-res and equipped with fancyBox3 (lightbox).
-Version: 1.01
+Version: 1.02
 Credits: jQuery (MIT license), Masonry (MIT license), Infinite Scroll (commercial license purchased), fancyBox (GPLv3 license, open-sourced on GitHub @lastlightsnet), PXU Photoset Extended (MIT license), Style Hatch for Photoset Grid, Zack Sultan for media resizing scripts, Font Awesome (SIL open font license), Google Fonts (SIL open font license)
 -->
 <html>
@@ -246,6 +246,8 @@ a:hover {color: {color:Links hover}; text-decoration: none;}
 .header {background: {color:Set header colour if not using a header image}; {block:ShowHeaderImage}{block:IfUseHeaderImage}background: url({HeaderImage}); background-position: center; background-repeat: no-repeat; background-size: cover;{/block:IfUseHeaderImage}{/block:ShowHeaderImage}; font-family: {font:Body font}; line-height: 150%; padding: 20px 0 0 0; text-align: center;}
 
 .logo {margin-bottom: 7px;}
+
+.header_logo {height: 64px; width: 64px;}
 
 .blog_title {font-family: {font:Blog title font}; font-size: {select:Title size}; letter-spacing: 0.2em; margin-bottom: 5px; padding-left: 5px; padding-right: 5px;}
 
@@ -525,7 +527,7 @@ html, body {overflow-x: hidden !important; width: auto !important;}
 
 <!-- LOGO -->
 {block:IfShowAvatar}
-<div class="logo"><a href="/"><img src="{PortraitURL-128}" alt="{Title}" title="{Title}" {block:IfUseCircleAvatar}style="border-radius: 50%;"{/block:IfUseCircleAvatar} width="64" height="64"></a></div><!-- .logo -->
+<div class="logo"><a href="/"><img src="{PortraitURL-128}" class="header_logo" alt="{Title}" title="{Title}" {block:IfUseCircleAvatar}style="border-radius: 50%;"{/block:IfUseCircleAvatar}></a></div><!-- .logo -->
 {/block:IfShowAvatar}
 
 <!-- TITLE -->
@@ -824,7 +826,7 @@ html, body {overflow-x: hidden !important; width: auto !important;}
 {/block:IndexPage}
 
 <!-- FOOTER -->
-<div class="footer"><div class="footer_inside"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="https://www.tumblr.com/theme/41035/">Dusky theme (1.01)</a> on <a href="https://www.tumblr.com">Tumblr</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a> &bull; <a href="http://lastlights.net/theme-support/">Theme Support</a></span></div><!-- .footer_inside --></div><!-- .footer -->
+<div class="footer"><div class="footer_inside"><span>© {CopyrightYears} <a href="/">{Title}</a> &bull; <a href="https://www.tumblr.com/theme/41035/">Dusky theme (1.02)</a> on <a href="https://www.tumblr.com">Tumblr</a> by <a href="http://lastlights.net/">LASTLIGHTS.NET</a></span></div><!-- .footer_inside --></div><!-- .footer -->
 </div><!-- #container -->
 
 <!-- SLIDING MENU -->
